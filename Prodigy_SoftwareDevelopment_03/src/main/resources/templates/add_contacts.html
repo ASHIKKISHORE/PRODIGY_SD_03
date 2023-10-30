@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <!--    linking bootstrap 4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        section {
+            padding: 60px 0;
+        }
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        #footer {
+            background: #262121;
+        }
+        #footer h5 {
+            padding-left: 10px;
+            border-left: 3px solid #eeeeee;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+            color:#ffffff;
+        }
+        #footer a {
+            color: #ffffff;
+            text-decoration: none !important;
+            background-color: transparent;
+        }
+        #footer ul.social li {
+            padding: 3px 0;
+        }
+        #footer ul.social li a i {
+            margin-right: 5px;
+            font-size:25px;
+            -webkit-transition: .5s all ease;
+            -moz-transition: .5s all ease;
+            transition: .5s all ease;
+        }
+        #footer ul.social li:hover a i {
+            font-size:30px;
+            margin-top:-10px;
+        }
+        #footer ul.social li a
+        {
+            color:#ffffff;
+        }
+        #footer ul.social li a:hover {
+            color:#eeeeee;
+        }
+        #footer ul.quick-links li a {
+            color:#ffffff;
+        }
+        #footer ul.quick-links li {
+            padding: 3px 0;
+            -webkit-transition: .5s all ease;
+            -moz-transition: .5s all ease;
+            transition: .5s all ease;
+        }
+        #footer ul.quick-links li:hover {
+            padding: 3px 0;
+            margin-left:5px;
+            font-weight:700;
+        }
+        #footer ul.quick-links li a i {
+            margin-right: 5px;
+        }
+        #footer ul.quick-links li:hover a i {
+            font-weight: 700;
+        }
+        @media (max-width:767px) {
+            #footer h5 {
+                padding-left: 0;
+                border-left: transparent;
+                padding-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+        h2 {
+            padding: 25px 0;
+            text-align: center;
+            color: #fff;
+            background: #7c8490;
+        }
+
+        button{
+            margin-right: 50px;
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container" style="padding-top: 20px">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center" style="padding-top: 10px">Add New Contact</h1>
+            <div class="card-body">
+                <form th:action="@{/insertContact}" th:object="${contact}" method="post">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" th:field="*{firstName}" placeholder="First name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" th:field="*{lastName}" placeholder="Last name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="Phone Number" required>
+                    </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input required type="email" class="form-control" th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">
+                        
+                        </div> <br>
+                        <div class="form-check footer-body">
+                            <button type="submit" class="btn btn-primary "><i class="fas fa-user-plus ml-2"> Add Contact </i></button>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
